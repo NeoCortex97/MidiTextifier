@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import time
-
 import mido
-import pathlib
 import argparse
 import sys
 import os
+from operator import itemgetter
 
 
 def convert_note_to_text(note: int):
@@ -84,4 +82,10 @@ if __name__ == '__main__':
         for n in result:
             n["duration_ticks"] = n["end"] - n["start"]
             n["duration"] = round((file.ticks_per_beat * 4) / n["duration_ticks"])
-            print(n)
+            n["corrected"] = min([1, 2, 4, 8, 16], key=lambda x:abs(x-n["duration"]))
+
+        sys.stdout.write(args.instrument)
+        sorted_result = sorted(result, key=itemgetter('idx')) # ensure items are sorted
+        for item in result:
+            sys.stdout.write(" {}{}".format(item["text"], item["corrected"]))
+        sys.stdout.write("\r\n")
