@@ -8,6 +8,6 @@ mid.tracks.append(track)
 
 for number in range(0, 96):
     track.append(mido.Message(type="note_on", note=number, velocity=64, time=480))
-    track.append(mido.Message(type="note_off", note=number, velocity=0, time=10))
+    track.append(mido.Message(type="note_off", note=number, velocity=0, time=240))
 
 mid.save("Midi/test.mid")

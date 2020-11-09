@@ -59,20 +59,25 @@ if __name__ == '__main__':
         result = []
         index = 0
 
-        # sys.stdout.write(args.instrument + " ")
         for note in file.tracks[args.track]:
             if note.type == 'note_on' and note.velocity > 0:
+                if -1 in active_notes.keys():
+                    tmp_pause = active_notes[-1]
+                    tmp_pause["end"] = current_ticks
+                    result.append(tmp_pause)
+                    del active_notes[-1]
                 if note.note not in active_notes.keys():
                     active_notes[note.note] = {"start": current_ticks, "idx": index,  "text": convert_note_to_text(note.note)}
                     index += 1
-                # sys.stdout.write(convert_note_to_text(note.note) + " ")
-                # sys.stdout.flush()
             elif note.type == 'note_off' or (note.type == 'note_on' and note.velocity == 0):
                 if note.note in active_notes.keys():
                     tmp_note = active_notes[note.note]
                     tmp_note["end"] = current_ticks
                     result.append(tmp_note)
                     del active_notes[note.note]
+                    if len(active_notes.keys()) == 0:
+                        active_notes[-1] = {"start": current_ticks, "idx": index, "text": "p"}
+                        index += 1
             current_ticks += note.time
 
         if len(result) == 0:
