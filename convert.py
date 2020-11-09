@@ -80,12 +80,16 @@ if __name__ == '__main__':
 
         # sys.stdout.write("\n")
         for n in result:
-            n["duration_ticks"] = n["end"] - n["start"]
-            n["duration"] = round((file.ticks_per_beat * 4) / n["duration_ticks"])
-            n["corrected"] = min([1, 2, 4, 8, 16], key=lambda x:abs(x-n["duration"]))
+            try:
+                n["duration_ticks"] = n["end"] - n["start"]
+                n["duration"] = round((file.ticks_per_beat * 4) / n["duration_ticks"])
+                n["corrected"] = min([1, 2, 4, 8, 16], key=lambda x: abs(x-n["duration"]))
+            except ZeroDivisionError:
+                pass
 
         sys.stdout.write(args.instrument)
         sorted_result = sorted(result, key=itemgetter('idx')) # ensure items are sorted
         for item in result:
-            sys.stdout.write(" {}{}".format(item["text"], item["corrected"]))
+            if "corrected" in item.keys():
+                sys.stdout.write(" {}{}".format(item["text"], item["corrected"]))
         sys.stdout.write("\r\n")
