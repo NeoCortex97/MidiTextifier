@@ -1,0 +1,15 @@
+{
+  "name": "webconverter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "midifile": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NoeCortex97",
+  "license": "MIT"
+}

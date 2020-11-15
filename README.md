@@ -13,3 +13,8 @@ python -m con
 * [Midi cat command documentation](https://edupad.ch/p/playmidi)
 * [Mido documantation](https://mido.readthedocs.io/en/latest/midi_files.html)
 * [Useful explanations concernings midi](https://www.zem-college.de/midi/mc_taben.htm)
+
+# WebConverter
+The web converter is an implementation in javascript so one could put it on a webpage.
+It uses the midifile library.
+[You can find its documentaion here](https://github.com/nfroidure/midifile)

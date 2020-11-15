@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Midi Converter</title>
+    </head>
+    <body>
+        <form id="fileSelectForm">
+            <label for="midiFile">Mididatei</label>
+            <input type="file" name="midiFile" id="midiFile">
+            <input type="button" value="Convertieren" id="convert">
+        </form>
+
+        <div id="outputContainer" style="width: 500px;"></div>
+        
+        <script src="js/MIDIEvents.js"></script>
+        <script src="js/MIDIFileHeader.js"></script>
+        <script src="js/MIDIFileTrack.js"></script>
+        <script src="js/MIDIFile.js"></script>
+        <script src="js/UTF8.js"></script>
+        <script src="js/convert.js"></script>
+</body>
+</html>
