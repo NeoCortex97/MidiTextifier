@@ -10,7 +10,7 @@ python -m con
 
 ## Related links
 
-* [Midi cat command documentation](https://edupad.ch/p/playmidi)
+* [Midi chat command documentation](https://edupad.ch/p/playmidi)
 * [Mido documantation](https://mido.readthedocs.io/en/latest/midi_files.html)
 * [Useful explanations concernings midi](https://www.zem-college.de/midi/mc_taben.htm)
 

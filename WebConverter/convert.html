@@ -4,15 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Midi Converter</title>
+        <link rel="stylesheet" href="css/convert.css">
     </head>
     <body>
+        <h1>Midi To Chat Command Compiler</h1>
         <form id="fileSelectForm">
             <label for="midiFile">Mididatei</label>
-            <input type="file" name="midiFile" id="midiFile">
+            <input type="file" name="midiFile" id="midiFile" ondrop="dropHandler()" ondragover="dragOverHandler()">
             <input type="button" value="Convertieren" id="convert">
         </form>
 
-        <div id="outputContainer" style="width: 500px;"></div>
+        <ul id="outputContainer" style="word-wrap: break-word;"></ul>
         
         <script src="js/MIDIEvents.js"></script>
         <script src="js/MIDIFileHeader.js"></script>
