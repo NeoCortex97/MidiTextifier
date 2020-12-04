@@ -112,7 +112,7 @@ function noteToString(element, tpb){
     }
     let length = parseInt((tpb * 4) / element.duration);
     if(!isNaN(length) && length !== 0)
-        return res + (length === 4 ? "" : length > 32 ? length : "32");
+        return res + (length === 4 ? "" : !(length > 32) ? length : "32");
     else
         return "";
 }
