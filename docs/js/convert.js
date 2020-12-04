@@ -26,7 +26,8 @@ document.getElementById("convert").addEventListener("click", function (evt) {
                         delete activeNotes[-1];
                     }
                     element.start = ticks;
-                    activeNotes[element.note] = element;
+                    if(Object.keys(activeNotes).length == 0)
+                        activeNotes[element.note] = element;
                 }
                 else if(activeNotes[element.note]){
                     let note = activeNotes[element.note];
@@ -111,7 +112,7 @@ function noteToString(element, tpb){
     }
     let length = parseInt((tpb * 4) / element.duration);
     if(!isNaN(length) && length !== 0)
-        return res + (length === 4 ? "" : length);
+        return res + (length === 4 ? "" : length > 32 ? length : "32");
     else
         return "";
 }
